@@ -6,6 +6,9 @@ Choose an Amazon Machine Image (AMI) that suits your needs. A free tier eligible
 Select an appropriate instance type. t2.micro is a free tier option for low traffic websites.
 Configure the instance details including network settings, storage, and security group. Here, create a security group that allows inbound HTTP traffic on port 80 (default for web traffic) for the world (0.0.0.0/0) or a specific IP range if you prefer more restricted access.
 
+![instance with elastic ip](https://github.com/Arzianghanchi/EC2-Apache-Deployment/assets/118063625/0541daa0-972d-495d-bb57-9d62f1cd8926)
+
+
 2. Install Apache Web Server:
 
 There are two main approaches to install Apache:
@@ -13,6 +16,7 @@ There are two main approaches to install Apache:
 Direct Installation: Connect to your EC2 instance using SSH and run commands to update system packages and install Apache. You can leverage user data scripts during launch to automate this process.
 Pre-configured AMI: Alternatively, you can create a custom AMI with Apache pre-installed. This 
 simplifies future deployments with identical configurations.
+
 
 3. Configure Apache:
 
@@ -23,7 +27,12 @@ You can configure virtual hosts to serve different websites from the same instan
 
 Securely transfer your website files (HTML, CSS, JavaScript, etc.) to the /var/www/html directory on your EC2 instance. Tools like SCP or S3 buckets can be used for this purpose.
 
+![directory where website files are available](https://github.com/Arzianghanchi/EC2-Apache-Deployment/assets/118063625/36456c2e-826a-4f56-90b3-6ff59f08479f)
+
+
 5. Test and Launch:
 
 Once the files are uploaded, restart the Apache service using the appropriate command (e.g., sudo systemctl restart httpd on Amazon Linux).
 Access your website using the Public DNS address of your EC2 instance in a web browser.
+
+![aws hosted website on ec2 on public ip add](https://github.com/Arzianghanchi/EC2-Apache-Deployment/assets/118063625/2f568f55-6ba0-4ac5-896f-c375411cb901)
